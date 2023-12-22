@@ -4,6 +4,9 @@ import 'package:islami_app/ui/home/quran/quranTab.dart';
 import 'package:islami_app/ui/home/radio/radioTab.dart';
 import 'package:islami_app/ui/home/sebha/sebhaTab.dart';
 
+import '../MyThemeData.dart';
+import 'Settings/settingsTab.dart';
+
 class HomeScreen extends StatefulWidget {
   static const String routeName = "Home";
   int selectedTabIndex = 0;
@@ -20,7 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.fill, image: AssetImage("assets/images/bg3.png"))),
+              fit: BoxFit.fill,
+              image: AssetImage(MyThemeData.isDark
+                  ? "assets/images/DarkBg.png"
+                  : "assets/images/bg3.png"))),
       child: Scaffold(
         appBar: AppBar(
           title: Text("Islami"),
@@ -49,6 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: ImageIcon(AssetImage("assets/images/radio.png")),
                 label: "radio"),
+            BottomNavigationBarItem(
+                backgroundColor: Theme.of(context).primaryColor,
+                icon: Icon(Icons.settings),
+                label: "Settings"),
           ],
         ),
         body: tabs[selectedTabIndex],
@@ -61,5 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
     BookTab(),
     SebhaTab(),
     RadioTab(),
+    SettingsTab()
   ];
 }

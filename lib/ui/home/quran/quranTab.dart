@@ -134,7 +134,7 @@ class QyranTab extends StatelessWidget {
                 return ChaterTitleWidget(names[int], int);
               },
               separatorBuilder: (BuildContext, int) => Container(
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).dividerColor,
                     width: double.infinity,
                     height: 2,
                     margin: EdgeInsets.symmetric(horizontal: 64),
