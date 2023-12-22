@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../MyThemeData.dart';
 import 'chaterTitleWidgetVerse.dart';
 
 class ChapterDetailsScreen extends StatefulWidget {
@@ -21,7 +22,10 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                fit: BoxFit.fill, image: AssetImage("assets/images/bg3.png"))),
+                fit: BoxFit.fill,
+                image: AssetImage(MyThemeData.isDark
+                    ? "assets/images/DarkBg.png"
+                    : "assets/images/bg3.png"))),
         child: Scaffold(
           appBar: AppBar(
             title: Text(args.title),
@@ -31,6 +35,7 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
                   child: CircularProgressIndicator(),
                 )
               : Card(
+                  color: Theme.of(context).cardColor,
                   elevation: 18,
                   margin: EdgeInsets.symmetric(vertical: 48, horizontal: 16),
                   shape: RoundedRectangleBorder(

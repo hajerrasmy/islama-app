@@ -30,7 +30,7 @@ class _BookTabState extends State<BookTab> {
           ))),
           child: Text(
             "Hadeth",
-            style: TextStyle(fontSize: 24),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
         Expanded(
@@ -42,7 +42,7 @@ class _BookTabState extends State<BookTab> {
                     return HadethTitleWidget(allhadeth[index]);
                   },
                   separatorBuilder: (BuildContext, int) => Container(
-                        color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).dividerColor,
                         width: double.infinity,
                         height: 2,
                         margin: EdgeInsets.symmetric(horizontal: 64),

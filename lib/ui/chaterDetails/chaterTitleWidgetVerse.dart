@@ -13,9 +13,7 @@ class ChaterTitleWidgetVerse extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         ' {$index} $title  ',
-        style: TextStyle(
-          fontSize: 20,
-        ),
+        style: Theme.of(context).textTheme.bodyMedium,
         textAlign: TextAlign.center,
       ),
     );
