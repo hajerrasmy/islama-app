@@ -3,8 +3,9 @@ import 'package:islami_app/ui/home/book/bookTab.dart';
 import 'package:islami_app/ui/home/quran/quranTab.dart';
 import 'package:islami_app/ui/home/radio/radioTab.dart';
 import 'package:islami_app/ui/home/sebha/sebhaTab.dart';
+import 'package:islami_app/ui/provider/provider.dart';
+import 'package:provider/provider.dart';
 
-import '../MyThemeData.dart';
 import 'Settings/settingsTab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,13 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<settingProider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage(MyThemeData.isDark
-                  ? "assets/images/DarkBg.png"
-                  : "assets/images/bg3.png"))),
+              fit: BoxFit.fill, image: AssetImage(provider.GetBackground()))),
       child: Scaffold(
         appBar: AppBar(
           title: Text("Islami"),

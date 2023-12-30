@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MyThemeData {
-  static bool isDark = false;
 
   static Color LightPraimy = Color(0xFFB7935F);
 

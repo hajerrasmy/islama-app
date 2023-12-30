@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/provider.dart';
 
 class ThemeBottomSheet extends StatefulWidget {
   const ThemeBottomSheet({super.key});
@@ -10,12 +13,29 @@ class ThemeBottomSheet extends StatefulWidget {
 class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   @override
   Widget build(BuildContext context) {
+    settingProider SettingProider = Provider.of<settingProider>(context);
+
     return Container(
       padding: EdgeInsets.all(16),
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [getSlectedItem("Light"), getUnslectedItem("Dark")],
+        children: [
+          InkWell(
+              onTap: () {
+                SettingProider.changeTheme(ThemeMode.light);
+              },
+              child: SettingProider.isDark()
+                  ? getUnslectedItem("Light")
+                  : getSlectedItem("Light")),
+          InkWell(
+              onTap: () {
+                SettingProider.changeTheme(ThemeMode.dark);
+              },
+              child: SettingProider.isDark()
+                  ? getSlectedItem("Dark")
+                  : getUnslectedItem("Dark"))
+        ],
       ),
     );
   }

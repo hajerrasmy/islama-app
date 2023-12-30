@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/ui/home/Settings/LanguageBottomSheet.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/provider.dart';
 import 'ThemeBottomSheet.dart';
 
 class SettingsTab extends StatefulWidget {
@@ -13,6 +15,8 @@ class SettingsTab extends StatefulWidget {
 class _SettingsTabState extends State<SettingsTab> {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<settingProider>(context);
+
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: 64,
@@ -37,7 +41,7 @@ class _SettingsTabState extends State<SettingsTab> {
                     width: 1,
                   )),
               child: Text(
-                "light",
+                provider.isDark() ? 'Dark ' : 'Light',
                 style: TextStyle(fontSize: 18),
               ),
             ),

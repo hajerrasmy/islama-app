@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/ui/provider/provider.dart';
+import 'package:provider/provider.dart';
 
-import '../MyThemeData.dart';
 import 'chaterTitleWidgetVerse.dart';
 
 class ChapterDetailsScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class ChapterDetailsScreen extends StatefulWidget {
 class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    var provier = Provider.of<settingProider>(context);
     ChapterDetailsArgs args =
         ModalRoute.of(context)?.settings.arguments as ChapterDetailsArgs;
     if (verses.isEmpty) {
@@ -22,10 +24,7 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(MyThemeData.isDark
-                    ? "assets/images/DarkBg.png"
-                    : "assets/images/bg3.png"))),
+                fit: BoxFit.fill, image: AssetImage(provier.GetBackground()))),
         child: Scaffold(
           appBar: AppBar(
             title: Text(args.title),
